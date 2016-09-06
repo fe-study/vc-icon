@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+<title>demo - vc-icon</title>
+<style>
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        background: rgba(119, 129, 149, 0.8);
+    }
+    .container {
+        width: 550px;
+        padding: 20px;
+    }
+    .container label {
+        font-weight: normal;
+    }
+    .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1 align="center">@Vue Component - vc-icon</h1>
+    <div class="text-center">Icon组件，封装Bootstrap使用的Glyphicons Halflings图标</div>
+    <a style="display: block" class="text-center" href="https://github.com/iwaimai-bi-fe/vc-icon">view on Github</a>
+    <hr>
+
+    <div id="app" class="container">
+
+        <button class="btn btn-success btn-sm" @click="toggleShape">toggle shape</button>
+        <button class="btn btn-success btn-sm" @click="largeFn">large</button>
+        <button class="btn btn-success btn-sm" @click="middleFn">middle</button>
+        <button class="btn btn-success btn-sm" @click="smallFn">small</button>
+        <button class="btn btn-success btn-sm" @click="miniFn">mini</button>
+        <br>
+
+        <vc-icon
+            :type="type"
+            :shape="shape"
+            :size="size"
+        >
+        </vc-icon>
+
+        <div class="form-group">
+            <label>配置组件的type属性</label>
+            <input type="text" class="form-control" placeholder="type" v-model="type" />
+        </div>
+
+        <div class="form-group">
+            <div>配置组件的size属性</div>
+            <label><input type="radio" class="radio" value="circle" name="size" v-model="shape" />circle</label>
+            <label><input type="radio" class="radio" value="" name="size" v-model="shape" />无</label>
+        </div>
+
+        <div class="form-group">
+            <div>配置组件的size属性</div>
+            <label><input type="radio" class="radio" value="large" name="size" v-model="size" />large</label>
+            <label><input type="radio" class="radio" value="middle" name="size" v-model="size" />middle</label>
+            <label><input type="radio" class="radio" value="small" name="size" v-model="size" />small(default)</label>
+            <label><input type="radio" class="radio" value="mini" name="size" v-model="size" />mini</label>
+            <br>
+            <label>或输入size作为font-size, 例如50</label>
+            <input type="text" class="form-control" placeholder="e.g. 18" v-model="size">
+        </div>
+
+
+    </div>
+    <script src='../dist/example.js'></script>
+</body>
+</html>
